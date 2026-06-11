@@ -1,0 +1,38 @@
+// .devcontainer/devcontainer.json
+{
+  "name": "heat-pump-modelling",
+  "image": "mcr.microsoft.com/devcontainers/python:3.12-bookworm",
+  "features": {
+    // uv (community feature — there's no official Astral one yet).
+    // Consider adding this to richardtowers/devcontainers
+    "ghcr.io/va-h/devcontainers-features/uv:1": {},
+
+    // Handy CLI basics (zsh, common utils); git is already in the base image.
+    "ghcr.io/devcontainers/features/common-utils:2": {},
+
+    // Claude Code
+    "ghcr.io/richardTowers/devcontainers/claude-code:1": {},
+
+    // Starship prompt line
+    "ghcr.io/tobiaschc/devcontainer-features/starship:1": {}
+  },
+
+  // Build-time libs occasionally needed for scientific packages without
+  // wheels, plus graphviz for networkx/diagram rendering.
+  "postCreateCommand": "sudo apt-get update && sudo apt-get install -y --no-install-recommends build-essential graphviz vim-nox && git clone https://github.com/richardtowers/dotfiles.git ~/dotfiles && ~/dotfiles/install.sh --patch-bash-for-idea && sudo chown -R vscode:vscode /home/vscode/.cache/uv && uv sync || true",
+
+  // Keep uv's cache on a volume so rebuilds don't re-download everything.
+  "mounts": [
+    "source=uv-cache,target=/home/vscode/.cache/uv,type=volume"
+  ],
+
+  "containerEnv": {
+    // Avoids hardlink warnings when cache and project are on different filesystems
+    "UV_LINK_MODE": "copy",
+    // Faster first-imports after sync
+    "UV_COMPILE_BYTECODE": "1"
+  },
+
+  // The base image's non-root user
+  "remoteUser": "vscode"
+}
