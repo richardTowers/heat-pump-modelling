@@ -52,15 +52,15 @@ moisture/psychrometrics cross-cuts.
 ## TODO
 
 ### Phase 0 — project skeleton
-- [ ] `uv init`, `src/` layout, pytest, ruff config
-- [ ] Data model (pydantic) for the house: `Room`, `Surface` (wall/window/
+- [x] `uv init`, `src/` layout, pytest, ruff config
+- [x] Data model (pydantic) for the house: `Room`, `Surface` (wall/window/
       floor/roof, U-value, area, orientation, adjacency: external / party /
       ground / unheated), `Radiator`, `PipeSegment`
-- [ ] House definition as data (YAML or Python) with placeholder dimensions
+- [x] House definition as data (YAML or Python) with placeholder dimensions
       to be replaced by a real survey; U-value lookup table with sources
       (CIBSE Guide A typical values for solid brick, single/double glazing,
       suspended floor)
-- [ ] Fetch/commit a London hourly EPW weather file + loader
+- [x] Fetch/commit a London hourly EPW weather file + loader
 
 ### Phase 1 — steady-state heat loss (BS EN 12831 style)
 - [ ] Room-by-room fabric + ventilation heat loss at design conditions
