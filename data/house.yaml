@@ -1,0 +1,259 @@
+# House definition — Victorian mid-terrace, London
+#
+# PLACEHOLDER dimensions throughout — replace with real survey measurements.
+# Marked with PLACEHOLDER comments so they are easy to grep for.
+#
+# Construction notes:
+#   - Solid brick external walls (225 mm, uninsulated, plastered internally)
+#   - Party walls both sides — adjacent dwellings assumed heated (no heat loss)
+#   - Suspended timber ground floor (exposed void beneath)
+#   - Single-glazed timber sash windows (original Victorian)
+#   - Pitched roof, assumed 100 mm mineral wool insulation at joist level
+#   - London design external temperature: −2 °C (BS EN 12831-1 Annex NA)
+
+name: "Victorian mid-terrace"
+location: "London, UK"
+
+rooms:
+
+  # ── Ground floor ────────────────────────────────────────────────────────────
+
+  - name: "Front reception"
+    floor_area_m2: 14.6    # PLACEHOLDER
+    ceiling_height_m: 2.70  # PLACEHOLDER
+    setpoint_c: 21.0        # MIS 3005-D living room default
+    surfaces:
+      - name: "Front external wall"
+        surface_type: wall
+        area_m2: 9.8        # PLACEHOLDER — full bay width × height minus window
+        u_value_w_per_m2k: 1.9   # solid brick 225 mm plastered (CIBSE Guide A)
+        adjacency: external
+        orientation: N
+      - name: "Front sash window"
+        surface_type: window
+        area_m2: 2.1        # PLACEHOLDER — typical Victorian bay sash
+        u_value_w_per_m2k: 5.7   # single-glazed timber (CIBSE Guide A)
+        adjacency: external
+        orientation: N
+      - name: "Left party wall"
+        surface_type: wall
+        area_m2: 9.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0   # party wall — no heat loss assumed
+        adjacency: party
+      - name: "Right party wall"
+        surface_type: wall
+        area_m2: 9.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 14.6       # PLACEHOLDER — same as floor_area_m2
+        u_value_w_per_m2k: 0.7   # suspended timber, uninsulated (BR 443)
+        adjacency: ground
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 14.6       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0   # internal — bedroom above at same setpoint
+        adjacency: internal
+    radiators:
+      - name: "Front reception radiator"
+        rated_output_w: 1200  # PLACEHOLDER — to be replaced with surveyed output
+        height_mm: 600        # PLACEHOLDER
+        length_mm: 1200       # PLACEHOLDER
+
+  - name: "Rear kitchen/diner"
+    floor_area_m2: 17.5    # PLACEHOLDER (includes rear extension)
+    ceiling_height_m: 2.70  # PLACEHOLDER
+    setpoint_c: 21.0
+    surfaces:
+      - name: "Rear external wall"
+        surface_type: wall
+        area_m2: 7.2        # PLACEHOLDER
+        u_value_w_per_m2k: 1.9
+        adjacency: external
+        orientation: S
+      - name: "Rear door"
+        surface_type: door
+        area_m2: 1.8        # PLACEHOLDER
+        u_value_w_per_m2k: 3.0   # solid timber door (typical)
+        adjacency: external
+        orientation: S
+      - name: "Rear window"
+        surface_type: window
+        area_m2: 1.4        # PLACEHOLDER
+        u_value_w_per_m2k: 5.7
+        adjacency: external
+        orientation: S
+      - name: "Left party wall"
+        surface_type: wall
+        area_m2: 11.9       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Right party wall"
+        surface_type: wall
+        area_m2: 11.9       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 17.5       # PLACEHOLDER
+        u_value_w_per_m2k: 0.7
+        adjacency: ground
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 17.5       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: internal
+    radiators:
+      - name: "Kitchen radiator"
+        rated_output_w: 800   # PLACEHOLDER
+        height_mm: 450        # PLACEHOLDER
+        length_mm: 800        # PLACEHOLDER
+
+  - name: "Hallway (ground)"
+    floor_area_m2: 5.5     # PLACEHOLDER
+    ceiling_height_m: 2.70  # PLACEHOLDER
+    setpoint_c: 18.0        # unoccupied circulation space
+    surfaces:
+      - name: "Front door"
+        surface_type: door
+        area_m2: 1.8        # PLACEHOLDER
+        u_value_w_per_m2k: 3.0
+        adjacency: external
+        orientation: N
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 5.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.7
+        adjacency: ground
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 5.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: internal
+
+  # ── First floor ──────────────────────────────────────────────────────────────
+
+  - name: "Front bedroom"
+    floor_area_m2: 14.6    # PLACEHOLDER
+    ceiling_height_m: 2.60  # PLACEHOLDER
+    setpoint_c: 18.0        # MIS 3005-D bedroom default
+    surfaces:
+      - name: "Front external wall"
+        surface_type: wall
+        area_m2: 7.7        # PLACEHOLDER
+        u_value_w_per_m2k: 1.9
+        adjacency: external
+        orientation: N
+      - name: "Front sash window"
+        surface_type: window
+        area_m2: 1.8        # PLACEHOLDER
+        u_value_w_per_m2k: 5.7
+        adjacency: external
+        orientation: N
+      - name: "Left party wall"
+        surface_type: wall
+        area_m2: 9.2        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Right party wall"
+        surface_type: wall
+        area_m2: 9.2        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 14.6       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0   # internal — heated room below
+        adjacency: internal
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 14.6       # PLACEHOLDER
+        u_value_w_per_m2k: 0.35  # pitched roof, 100 mm mineral wool (CIBSE Guide A)
+        adjacency: unheated       # cold loft above
+    radiators:
+      - name: "Front bedroom radiator"
+        rated_output_w: 900   # PLACEHOLDER
+        height_mm: 600        # PLACEHOLDER
+        length_mm: 800        # PLACEHOLDER
+
+  - name: "Rear bedroom"
+    floor_area_m2: 12.0    # PLACEHOLDER
+    ceiling_height_m: 2.60  # PLACEHOLDER
+    setpoint_c: 18.0
+    surfaces:
+      - name: "Rear external wall"
+        surface_type: wall
+        area_m2: 7.0        # PLACEHOLDER
+        u_value_w_per_m2k: 1.9
+        adjacency: external
+        orientation: S
+      - name: "Rear window"
+        surface_type: window
+        area_m2: 1.4        # PLACEHOLDER
+        u_value_w_per_m2k: 5.7
+        adjacency: external
+        orientation: S
+      - name: "Left party wall"
+        surface_type: wall
+        area_m2: 7.8        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Right party wall"
+        surface_type: wall
+        area_m2: 7.8        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 12.0       # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: internal
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 12.0       # PLACEHOLDER
+        u_value_w_per_m2k: 0.35
+        adjacency: unheated
+    radiators:
+      - name: "Rear bedroom radiator"
+        rated_output_w: 750   # PLACEHOLDER
+        height_mm: 600        # PLACEHOLDER
+        length_mm: 700        # PLACEHOLDER
+
+  - name: "Bathroom"
+    floor_area_m2: 4.5     # PLACEHOLDER
+    ceiling_height_m: 2.60  # PLACEHOLDER
+    setpoint_c: 22.0        # MIS 3005-D bathroom default
+    surfaces:
+      - name: "Rear external wall"
+        surface_type: wall
+        area_m2: 3.2        # PLACEHOLDER
+        u_value_w_per_m2k: 1.9
+        adjacency: external
+        orientation: S
+      - name: "Rear window (frosted)"
+        surface_type: window
+        area_m2: 0.6        # PLACEHOLDER
+        u_value_w_per_m2k: 5.7
+        adjacency: external
+        orientation: S
+      - name: "Left party wall"
+        surface_type: wall
+        area_m2: 2.9        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: party
+      - name: "Floor"
+        surface_type: floor
+        area_m2: 4.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.0
+        adjacency: internal
+      - name: "Ceiling"
+        surface_type: roof
+        area_m2: 4.5        # PLACEHOLDER
+        u_value_w_per_m2k: 0.35
+        adjacency: unheated
+    radiators:
+      - name: "Bathroom towel rail"
+        rated_output_w: 400   # PLACEHOLDER
+        height_mm: 800        # PLACEHOLDER
+        length_mm: 400        # PLACEHOLDER
