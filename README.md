@@ -63,12 +63,12 @@ moisture/psychrometrics cross-cuts.
 - [x] Fetch/commit a London hourly EPW weather file + loader
 
 ### Phase 1 — steady-state heat loss (BS EN 12831 style)
-- [ ] Room-by-room fabric + ventilation heat loss at design conditions
+- [x] Room-by-room fabric + ventilation heat loss at design conditions
       (London design external temp ≈ −2 °C, per-room internal setpoints)
-- [ ] Party wall and ground floor treatment made explicit and documented
-- [ ] Whole-house total, specific heat loss (W/m²)
-- [ ] Viz: Plotly Sankey of heat flows by element; per-room bar chart
-- [ ] Tests: hand-checked reference room
+- [x] Party wall and ground floor treatment made explicit and documented
+- [x] Whole-house total, specific heat loss (W/m²)
+- [x] Viz: Plotly Sankey of heat flows by element; per-room bar chart
+- [x] Tests: hand-checked reference room
 
 ### Phase 2 — MCS 031 estimate layer
 - [ ] Implement the MCS 031 v4.0 methodology from the published standard

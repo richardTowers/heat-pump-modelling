@@ -1,5 +1,6 @@
-"""Entry point — print a summary of the house definition and weather file."""
+"""Entry point — summarise the house, its design heat loss, and the weather."""
 
+from heat_pump_modelling.heat_loss import compute_house_heat_loss
 from heat_pump_modelling.house import load_house
 from heat_pump_modelling.weather import load_london_epw
 
@@ -16,6 +17,19 @@ def main() -> None:
         n_rad = len(room.radiators)
         print(f"  {room.name:<25} {room.floor_area_m2:5.1f} m²  "
               f"{n_surf} surfaces  {n_rad} radiators")
+
+    print()
+    heat_loss = compute_house_heat_loss(house)
+    cond = heat_loss.conditions
+    print(f"Design heat loss (BS EN 12831-1, external {cond.external_temp_c:g} °C):")
+    print(f"  {'room':<25}{'fabric':>8}{'vent':>8}{'total':>8}{'W/m²':>8}")
+    for room in heat_loss.rooms:
+        print(f"  {room.name:<25}{room.transmission_w:7.0f}W{room.ventilation_w:7.0f}W"
+              f"{room.total_w:7.0f}W{room.specific_heat_loss_w_per_m2:7.0f} ")
+    print(f"  {'WHOLE HOUSE':<25}{heat_loss.total_transmission_w:7.0f}W"
+          f"{heat_loss.total_ventilation_w:7.0f}W{heat_loss.total_w:7.0f}W"
+          f"{heat_loss.specific_heat_loss_w_per_m2:7.0f} ")
+    print(f"  Heat loss coefficient: {heat_loss.total_coefficient_w_per_k:.1f} W/K")
 
     print()
     weather, meta = load_london_epw()
