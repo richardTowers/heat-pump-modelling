@@ -76,6 +76,12 @@ class Room(BaseModel):
     floor_area_m2: float = Field(gt=0)
     ceiling_height_m: float = Field(gt=0)
     setpoint_c: float = Field(description="Design internal temperature [°C]")
+    air_change_rate_per_h: float | None = Field(
+        default=None,
+        ge=0,
+        description="Design air change rate [1/h]. If None, resolved from a "
+        "room-type default table at heat-loss time (see DesignConditions).",
+    )
     surfaces: list[Surface] = []
     radiators: list[Radiator] = []
     pipe_segments: list[PipeSegment] = []
