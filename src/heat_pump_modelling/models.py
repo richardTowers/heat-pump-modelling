@@ -6,12 +6,12 @@ Units are kept explicit in field names throughout. All temperatures in °C,
 areas in m², lengths in m or mm as noted, power in W, U-values in W/m²K.
 """
 
-from enum import Enum
+from enum import StrEnum
 
 from pydantic import BaseModel, Field
 
 
-class Adjacency(str, Enum):
+class Adjacency(StrEnum):
     """What a surface borders — determines whether it contributes to heat loss."""
 
     EXTERNAL = "external"   # outdoor air
@@ -21,7 +21,7 @@ class Adjacency(str, Enum):
     INTERNAL = "internal"   # adjacent heated room at same setpoint — no heat loss
 
 
-class SurfaceType(str, Enum):
+class SurfaceType(StrEnum):
     WALL = "wall"
     WINDOW = "window"
     DOOR = "door"

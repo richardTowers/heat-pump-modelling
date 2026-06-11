@@ -48,9 +48,9 @@ import plotly.express as px
 import plotly.graph_objects as go
 import plotly.io as pio
 
-from heat_pump_modelling.weather import load_london_epw
 from heat_pump_modelling.house import load_house
 from heat_pump_modelling.models import Adjacency
+from heat_pump_modelling.weather import load_london_epw
 
 # Emit BOTH the plotly mimetype and a CDN-backed HTML fallback:
 #   - "plotly_mimetype" -> application/vnd.plotly.v1+json, which PyCharm, VS Code

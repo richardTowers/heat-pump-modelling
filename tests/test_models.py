@@ -2,8 +2,8 @@
 
 import pytest
 
-from heat_pump_modelling.models import Adjacency, House, Radiator, Room, Surface, SurfaceType
 from heat_pump_modelling.house import load_house
+from heat_pump_modelling.models import Adjacency, House, Room, Surface, SurfaceType
 
 
 class TestSurface:

@@ -1,0 +1,18 @@
+#!/usr/bin/env bash
+# Pre-commit hook: lint with ruff before allowing a commit.
+#
+# Enabled per-clone via:   git config core.hooksPath .githooks
+# (CLAUDE.md documents this; the devcontainer can run it on create.)
+#
+# Lint only — we deliberately do NOT run `ruff format`, since the codebase
+# uses hand-tuned alignment that the formatter would churn. Run
+# `uv run ruff check --fix` to auto-fix most findings.
+set -euo pipefail
+
+if ! uv run ruff check .; then
+    echo
+    echo "✗ ruff found lint errors — commit aborted."
+    echo "  Fix them (try: uv run ruff check --fix .) or, to bypass once,"
+    echo "  commit with --no-verify."
+    exit 1
+fi
