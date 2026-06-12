@@ -25,6 +25,23 @@ user decide when to rebase.
 uv sync          # install / sync dependencies
 uv run main.py   # run the entry point
 uv add <pkg>     # add a dependency (updates pyproject.toml and uv.lock)
+uv run pytest    # run the test suite
+uv run ruff check .          # lint
+uv run ruff check --fix .    # lint and auto-fix
 ```
 
-No tests or linting are configured yet.
+## Linting & the pre-commit hook
+
+Ruff is configured in `pyproject.toml` (lint rules `E,F,I,UP`, line length 100).
+We do **not** use `ruff format` — the code uses hand-tuned alignment the
+formatter would churn.
+
+A pre-commit hook in `.githooks/pre-commit` runs `ruff check` and blocks the
+commit on any lint error. It is version-controlled but must be enabled once per
+clone:
+
+```bash
+git config core.hooksPath .githooks
+```
+
+Bypass for a single commit with `git commit --no-verify`.

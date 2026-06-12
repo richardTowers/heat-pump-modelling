@@ -1,0 +1,74 @@
+# Typical U-values for Victorian solid-wall construction.
+# Sources: CIBSE Guide A (2006) Table 3.49; BR 443 (2006)
+# All values in W/m²K
+
+solid_brick_225mm:
+  u_value_w_per_m2k: 2.1
+  description: "225 mm solid brick wall, unplastered/uninsulated"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+solid_brick_225mm_plastered:
+  u_value_w_per_m2k: 1.9
+  description: "225 mm solid brick wall, internal plaster"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+cavity_wall_uninsulated:
+  u_value_w_per_m2k: 1.6
+  description: "Uninsulated cavity wall (102 mm brick / 50 mm cavity / 100 mm block)"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+cavity_wall_filled:
+  u_value_w_per_m2k: 0.5
+  description: "Cavity wall with mineral wool fill"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+single_glazed_timber:
+  u_value_w_per_m2k: 5.7
+  description: "Single-glazed timber-framed window (inc. frame)"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+double_glazed_air:
+  u_value_w_per_m2k: 2.8
+  description: "Double-glazed, air-filled cavity, timber frame"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+double_glazed_low_e:
+  u_value_w_per_m2k: 1.8
+  description: "Double-glazed, low-e coating, argon fill, timber frame"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+triple_glazed:
+  u_value_w_per_m2k: 0.9
+  description: "Triple-glazed, low-e, argon fill"
+  source: "Typical market value"
+
+suspended_timber_floor:
+  u_value_w_per_m2k: 0.7
+  description: "Suspended timber floor, exposed underfloor void, uninsulated"
+  source: "BR 443 (2006) / CIBSE Guide A Table 3.49"
+  notes: "Assumes ventilated void beneath; more precise calculation per ISO 13370"
+
+solid_concrete_floor_uninsulated:
+  u_value_w_per_m2k: 0.8
+  description: "Solid concrete ground-floor slab, uninsulated"
+  source: "BR 443 (2006)"
+
+pitched_roof_uninsulated:
+  u_value_w_per_m2k: 2.3
+  description: "Pitched roof, no insulation, tiles on battens"
+  source: "CIBSE Guide A (2006) Table 3.49"
+
+pitched_roof_100mm_mineral_wool:
+  u_value_w_per_m2k: 0.35
+  description: "Pitched roof with 100 mm mineral wool at joist level"
+  source: "CIBSE Guide A (2006)"
+
+pitched_roof_270mm_mineral_wool:
+  u_value_w_per_m2k: 0.13
+  description: "Pitched roof with 270 mm mineral wool (100 mm between + 170 mm cross-battened)"
+  source: "Current Building Regulations Part L target"
+
+party_wall:
+  u_value_w_per_m2k: 0.0
+  description: "Shared party wall with an adjacent heated dwelling — no net heat loss assumed"
+  source: "BS EN 12831-1:2017 §6.3.3.2 — Θint,adj = Θint,i assumed"
