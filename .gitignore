@@ -38,3 +38,7 @@ Thumbs.db
 *.parquet
 *.h5
 *.hdf5
+
+# MCS Excel tools — copyright MCS, local test oracle only (see PROVENANCE.md)
+tests/fixtures/mcs/*.xlsm
+tests/fixtures/mcs/*.xlsx

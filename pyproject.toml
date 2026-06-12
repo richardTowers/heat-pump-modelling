@@ -13,9 +13,11 @@ dependencies = [
 
 [dependency-groups]
 dev = [
+    "formulas==1.3.4",
     "ipykernel>=7.3.0",
     "jupyter>=1.1.1",
     "nbconvert>=7.17.1",
+    "openpyxl>=3.1.5",
     "pytest>=9.0.3",
     "ruff>=0.15.16",
 ]
@@ -29,6 +31,9 @@ packages = ["src/heat_pump_modelling"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
+markers = [
+    "slow: heavy / infrastructure-dependent (e.g. boots LibreOffice). Run with -m slow.",
+]
 
 [tool.ruff]
 line-length = 100
